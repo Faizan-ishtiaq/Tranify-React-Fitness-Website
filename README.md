@@ -5,7 +5,7 @@ It showcases workout plans, healthy lifestyle tips, and trainer profiles.
 
 ## 🚀 Features
 - Clean and responsive design
-- React Router navigation
+- smooth scrolling navigation
 - Reusable components
 - Contact and services sections
 
