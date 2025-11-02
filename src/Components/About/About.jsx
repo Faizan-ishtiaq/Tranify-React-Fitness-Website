@@ -1,6 +1,6 @@
 import React from "react";
 import "./About.css";
-import coachImg from "../../assets/coach.webp"; // replace with your fitness coach image path
+import coachImg from "../../assets/Coach.webp"; // replace with your fitness coach image path
 
 const About = () => {
   return (
