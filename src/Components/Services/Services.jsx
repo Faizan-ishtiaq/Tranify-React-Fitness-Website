@@ -1,6 +1,6 @@
 import React from "react";
 import "./Services.css";
-import personalImg from '../../assets/personal-training.webp'
+import personalImg from '../../assets/Personal-training.webp'
 import nutritionImg from '../../assets/nutrition.png'
 import onlineImg from '../../assets/online.png'
 import transformationImg from '../../assets/transformation.png'
