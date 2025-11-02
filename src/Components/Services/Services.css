@@ -1,0 +1,116 @@
+/* container helper - reuse if you have one */
+.container { width: 90%; max-width: 1100px; margin: 0 auto; max-height: 85vh;}
+
+.services {
+  background: #fff;
+  padding: 80px 0;
+  color: #111;
+}
+
+.svc-header h4 {
+  color: #ff2e2e;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.svc-header h2 {
+  font-size: 28px;
+  margin-bottom: 12px;
+}
+
+.svc-intro {
+  color: #555;
+  margin-bottom: 28px;
+}
+
+/* grid */
+.svc-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+}
+
+/* card */
+.svc-card {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 22px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.06);
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  min-height: 220px;
+  transition: transform .18s ease, box-shadow .18s ease;
+}
+
+.svc-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.12);
+}
+.svc-img{
+  width: 100px;
+}
+.svc-icon { color: #ff2e2e; }
+
+/* title and desc */
+.svc-card h3 {
+  margin: 0;
+  font-size: 18px;
+}
+
+.svc-card p {
+  color: #666;
+  flex: 1;
+  margin: 0;
+  font-size: 14px;
+}
+
+/* footer of each card - two buttons */
+.svc-card-footer {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.btn-outline {
+  border: 1px solid #ddd;
+  background: transparent;
+  padding: 8px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  color: #333;
+}
+
+.btn-red {
+  background: #ff2e2e;
+  color: white;
+  padding: 8px 14px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+/* CTA under grid */
+.svc-cta {
+  margin-top: 32px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap: 16px;
+  padding: 18px;
+  border-radius: 10px;
+  background: #fafafa;
+  border: 1px solid #f0f0f0;
+}
+
+.svc-cta p { margin: 0; color: #333; }
+.btn-red.large { padding: 12px 22px; border-radius: 30px; }
+
+/* responsive */
+@media (max-width: 1000px) {
+  .svc-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 640px) {
+  .svc-grid { grid-template-columns: 1fr; }
+  .svc-cta { flex-direction: column; align-items: flex-start; }
+}
