@@ -6,20 +6,14 @@ export default function Subscription() {
   const [email, setEmail] = useState("");
   const [status, setStatus] = useState(null); // null | "sending" | "ok" | "err"
 
-  function selectMonthly() {
-    setSelected("monthly");
-  }
-  function selectQuarter() {
-    setSelected("quarter");
-  }
-  function selectYearly() {
-    setSelected("yearly");
-  }
+  function selectMonthly() { setSelected("monthly"); }
+  function selectQuarter() { setSelected("quarter"); }
+  function selectYearly() { setSelected("yearly"); }
 
   function submitForm(e) {
     e.preventDefault();
     setStatus(null);
-    var re = /^\S+@\S+\.\S+$/;
+    const re = /^\S+@\S+\.\S+$/;
     if (!re.test(email)) {
       setStatus("err");
       return;
@@ -28,15 +22,13 @@ export default function Subscription() {
     setTimeout(function () {
       setStatus("ok");
       setEmail("");
-      setTimeout(function () {
-        setStatus(null);
-      }, 2500);
+      setTimeout(function () { setStatus(null); }, 2500);
     }, 700);
   }
 
   return (
     <section className="simple-subscribe" id="subscription">
-      <div className="simple-container">
+      <div className="simple-container container">
 
         <div className="plans-column">
           <h3>Membership Plans</h3>
@@ -100,8 +92,9 @@ export default function Subscription() {
                 type="email"
                 placeholder="Your email address"
                 value={email}
-                onChange={function (e) { setEmail(e.target.value); }}
+                onChange={(e) => setEmail(e.target.value)}
                 required
+                aria-label="Email for subscription"
               />
               <button type="submit" className="btn">
                 {status === "sending" ? "Processing..." : "Subscribe"}

@@ -113,7 +113,7 @@
   margin: 18px 0;
   font-size: 1.15rem;
 }
-.nav-menu-mobile a { color: #111; }
+.nav-menu-mobile a { color: #111; text-decoration: none;}
 
 /* mobile CTA */
 .mobile-cta {
@@ -141,6 +141,6 @@
 
 /* small phones tweak */
 @media (max-width: 420px) {
-  .nav-menu-mobile { width: 88%; }
+  .nav-menu-mobile { width: 78%; }
   .nav-menu-mobile li { font-size: 1.05rem; }
 }

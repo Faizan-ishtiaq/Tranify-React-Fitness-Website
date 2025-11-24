@@ -37,3 +37,62 @@ html, body { overflow-x: hidden; }
   .hidden-mobile { display: none; }
   .visible-mobile { display: inline; }
 } */
+
+/* 1) Safe box-sizing so padding doesn't cause overflow */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* 2) Hide any accidental horizontal overflow (safe default) */
+html, body {
+  overflow-x: hidden;
+}
+
+/* 3) Make media (images/videos/iframes) scale down instead of growing page */
+img, picture, video, iframe {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* 4) Prevent flex/grid children from overflowing their containers */
+.container,
+.about-container,
+.contact-wrap,
+.simple-container,
+.svc-grid,
+.footer-container,
+.home,
+.home .home-content,
+.home .home-image,
+.contact-right,
+.contact-left,
+.svc-card {
+  min-width: 0; /* <- important for long words, grids, flex items */
+}
+
+/* 5) Ensure forms / textareas don't exceed container */
+input, textarea, select, button {
+  max-width: 100%;
+}
+
+/* 6) Make sections use padding instead of side margins that can overflow */
+section, .container {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 16px;
+  padding-right: 16px;
+}
+
+/* 7) If you used width:100vw anywhere, override it (100vw can cause overflow because of scrollbar) */
+[style="100vw"], .fullwidth, .hero {
+  max-width: 100%;
+}
+
+/* 8) Debug helper (optional) — enable to see overflowing elements */
+/*
+* { outline: 1px solid rgba(255,0,0,0.04); }
+*/

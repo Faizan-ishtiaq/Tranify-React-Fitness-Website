@@ -1,20 +1,31 @@
 /* Basic container helper (keeps content centered and respects navbar) */
 .container {
-  width: 100%;
-  max-width: 1200px;
+  width: 90%;
+  max-width: 900px;
   padding: 0 20px;
   margin: 0 auto;
 }
 
 /* Hero / Home styles - mobile first */
 .home {
-  display: grid;
+  /* display: grid;
+   max-width: 1800px;
   grid-template-columns: 1fr;
-  gap: 30px;
-  padding: 100px 10px 60px; /* top padding ensures navbar (fixed) doesn't overlap */
+  gap: 10px;
+  padding: 200px 10px 30px; /* top padding ensures navbar (fixed) doesn't overlap 
   background-color: #ffffff;
   min-height: calc(100vh - 80px);
   align-items: center;
+  justify-items: center; */
+   display: grid;
+  grid-template-columns: 1fr;
+  gap: 28px;
+  align-items: center;
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 20px;
+
 }
 
 /* content */
@@ -74,9 +85,10 @@
 @media (min-width: 768px) {
   .home {
     grid-template-columns: 1fr 1fr; /* text left, image right */
-    gap: 40px;
-    padding: 120px 20px 80px;
+    gap: 10px;
+    padding: 80px 20px 80px;
     min-height: calc(100vh - 90px);
+    justify-content: center;
   }
   .home-content { text-align: left; padding-left: 20px; }
   .main-heading { font-size: 42px; margin-bottom: 20px; }
@@ -86,8 +98,30 @@
 
 /* small phones: tighter spacing */
 @media (max-width: 420px) {
+  .home{
+    margin: 70px 0;
+  }
   .main-heading { font-size: 26px; }
   .description { font-size: 15px; }
   .home { padding-top: 90px; }
   .home-image img { max-width: 300px; }
+}
+
+
+@media (max-width: 767px) {
+
+  .home {
+    display: flex;
+    flex-direction: column; /* stack vertically */
+    align-items: center;
+    text-align: center;
+  }
+
+  .home-image {
+    order: -1; /* IMAGE FIRST */
+  }
+
+  .home-content {
+    order: 1;  /* TEXT SECOND */
+  }
 }

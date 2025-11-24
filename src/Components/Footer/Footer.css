@@ -1,69 +1,73 @@
 .footer {
   background: #1c1c1c;
   color: #fff;
-  padding: 60px 0 30px;
-  text-align: center;
-
+  padding: 48px 0 24px;
+  text-align: left;
 }
 
 .footer-container {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-between;
   flex-wrap: wrap;
-  max-width: 100%;
-  margin: auto;
-  gap: 30px;
+  gap: 28px;
+  max-width: 1200px;
+  margin: 0 auto;
+  align-items: flex-start;
 }
 
 .footer-logo h2 {
-  font-size: 28px;
+  font-size: 26px;
   color: #ff3830;
+  margin: 0 0 8px;
 }
-
-
 .footer-logo p {
   color: #aaa;
-  margin-top: 10px;
-  font-size: 15px;
+  margin-top: 6px;
+  font-size: 14px;
   line-height: 1.5;
 }
 
 .footer-links h3,
 .footer-contact h3 {
   color: #ff3830;
-  margin-bottom: 10px;
-  font-size: 20px;
+  margin-bottom: 8px;
+  font-size: 18px;
 }
 
-.footer-links ul {
-  list-style: none;
-  padding: 0;
-}
+.footer-links ul { list-style: none; padding: 0; margin: 0; }
+.footer-links li { margin: 6px 0; }
+.footer-links a { text-decoration: none; color: #fff; transition: color 0.2s; }
+.footer-links a:hover { color: #ff3830; }
 
-.footer-links li {
-  margin: 6px 0;
-}
-
-.footer-links a {
-  text-decoration: none;
-  color: #fff;
-  transition: color 0.3s;
-}
-
-.footer-links a:hover {
-  color: #ff3830;
-}
-
-.footer-contact p {
-  color: #ccc;
-  font-size: 15px;
-  margin: 6px 0;
-}
+.footer-contact p { color: #ccc; font-size: 14px; margin: 6px 0; }
 
 .footer-bottom {
   border-top: 1px solid #333;
-  margin-top: 40px;
-  padding-top: 15px;
+  margin-top: 28px;
+  padding-top: 14px;
   color: #aaa;
-  font-size: 14px;
+  font-size: 13px;
+  text-align: center;
+}
+
+/* responsive: stack columns on tablet/phone */
+@media (max-width: 900px) {
+  .footer {
+    text-align: center;
+    padding: 36px 12px 20px;
+  }
+  .footer-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 18px;
+    justify-items: center;
+    align-items: start;
+  }
+  .footer-links, .footer-contact, .footer-logo { text-align: center; }
+  .footer-links ul { display: inline-block; }
+}
+
+@media (max-width: 420px) {
+  .footer-logo h2 { font-size: 22px; }
+  .footer-links h3, .footer-contact h3 { font-size: 16px; }
 }

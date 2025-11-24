@@ -18,7 +18,7 @@ export default function Contact() {
     e.preventDefault();
     setStatus("sending");
 
-    // fake send: replace with real API later (Formspree, EmailJS, backend)
+    // fake send (replace with real API later)
     setTimeout(() => {
       setStatus("success");
       setForm({ name: "", email: "", phone: "", message: "" });
@@ -28,7 +28,7 @@ export default function Contact() {
 
   return (
     <section id="contact" className="contact-section">
-      <div className="contact-wrap">
+      <div className="contact-wrap container">
 
         {/* LEFT: text / info */}
         <div className="contact-left">
@@ -40,15 +40,14 @@ export default function Contact() {
           </p>
 
           <div className="quick-info">
-            <div><strong>Email:</strong> <a href="mailto:coachfaizan@example.com">faizanishtiaqwork@gmail.com</a></div>
+            <div><strong>Email:</strong> <a href="mailto:faizanishtiaqwork@gmail.com">faizanishtiaqwork@gmail.com</a></div>
             <div><strong>Phone:</strong> <a href="tel:+923001234567">+92 300 1234567</a></div>
             <div><strong>Hours:</strong> Mon–Fri 07:00–20:00</div>
           </div>
 
           <div className="small-cta">
             <button className="btn-red" onClick={() => {
-              // optional: scroll to form programmatically
-              document.querySelector(".contact-form").scrollIntoView({ behavior: "smooth" });
+              document.querySelector(".contact-form")?.scrollIntoView({ behavior: "smooth" });
             }}>Book a Free Call</button>
           </div>
         </div>
@@ -63,6 +62,7 @@ export default function Contact() {
                 onChange={handleChange}
                 placeholder="Your Name"
                 required
+                aria-label="Your name"
               />
               <input
                 name="email"
@@ -71,6 +71,7 @@ export default function Contact() {
                 onChange={handleChange}
                 placeholder="Your Email"
                 required
+                aria-label="Your email"
               />
             </div>
 
@@ -80,8 +81,9 @@ export default function Contact() {
                 value={form.phone}
                 onChange={handleChange}
                 placeholder="Phone (optional)"
+                aria-label="Phone"
               />
-              <select name="service" defaultValue="Personal Training">
+              <select name="service" defaultValue="Personal Training" aria-label="Service">
                 <option>Personal Training</option>
                 <option>Online Coaching</option>
                 <option>Nutrition Plan</option>
@@ -94,8 +96,9 @@ export default function Contact() {
               value={form.message}
               onChange={handleChange}
               placeholder="Tell me about your goals..."
-              rows="3"
+              rows="4"
               required
+              aria-label="Message"
             />
 
             <div className="form-actions">
