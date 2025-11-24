@@ -1,60 +1,109 @@
+/* About section - mobile-first */
 .about {
   background-color: #f8f9fa;
-  padding: 80px 0;
-}
-
-.about-container {
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  width: 90%;
-  margin: auto;
-  gap: 50px;
-  min-height: 70vh;
-  max-width: 1300px;
-}
-
-.about-image img {
-  width: 400px;
-  height: auto;
-  border-radius: 20px;
-  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
-}
-
-.about-text {
-  flex: 1;
-}
-
-.about-text h2 {
-  font-size: 2.5rem;
+  padding: 60px 0;
   color: #111;
-  margin-bottom: 10px;
+}
+
+/* container helper - uses your .container */
+.about-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 28px;
+  align-items: center;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* image */
+.about-image img {
+  width: 100%;
+  max-width: 520px; /* desktop cap */
+  height: auto;
+  border-radius: 16px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+  display: block;
+  margin: 0 auto;
+  object-fit: cover;
+}
+
+/* text */
+.about-text h2 {
+  font-size: 1.8rem;
+  color: #111;
+  margin-bottom: 12px;
 }
 
 .about-text p {
-  font-size: 1.2rem;
+  font-size: 1rem;
   color: #555;
-  margin-bottom: 15px;
+  margin-bottom: 12px;
   line-height: 1.7;
 }
 
 .about-text span {
-  color: #e63946; /* same bright red you used in navbar/buttons */
-  font-weight: bold;
+  color: #e63946;
+  font-weight: 700;
 }
 
+.about-actions {
+  margin-top: 12px;
+  display: flex;
+  justify-content: center;
+}
+
+/* button */
 .about-btn {
   background-color: #e63946;
   color: white;
   border: none;
-  padding: 12px 25px;
-  border-radius: 30px;
+  padding: 12px 22px;
+  border-radius: 28px;
   font-size: 1rem;
   cursor: pointer;
-  transition: 0.3s;
+  transition: transform .15s ease, background-color .15s ease;
 }
-
 .about-btn:hover {
   background-color: #c92834;
-  transform: scale(1.05);
+  transform: translateY(-3px);
+}
+
+/* Tablet / Desktop: two-column layout */
+@media (min-width: 768px) {
+  .about-container {
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: center;
+    padding: 0 24px;
+  }
+
+  .about-text {
+    padding-right: 10px;
+  }
+
+  .about-text h2 {
+    font-size: 2.5rem;
+  }
+
+  .about-text p {
+    font-size: 1.125rem;
+  }
+
+  .about-actions {
+    justify-content: flex-start;
+  }
+}
+
+/* Large screens small tuning */
+@media (min-width: 1200px) {
+  .about-image img { max-width: 640px; border-radius: 20px; }
+}
+
+/* Small phones: tighten spacing */
+@media (max-width: 420px) {
+  .about { padding: 36px 0; }
+  .about-text h2 { font-size: 1.6rem; }
+  .about-text p { font-size: 0.96rem; }
 }

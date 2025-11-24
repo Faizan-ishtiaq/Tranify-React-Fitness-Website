@@ -1,184 +1,146 @@
- .navbar{
-    background-color: #1c1c1c;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    padding: 10px 20px;
-    position: fixed;
-    top: 0;
-   width: 100%;
-    z-index: 1000;
-    
+/* ===== Navbar - Desktop styles (kept from your original) ===== */
+.navbar{
+  background-color: #1c1c1c;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 10px 20px;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+}
 
-}
 .navbar-heading{
-    color: #ff3b30;
+  color: #ff3b30;
 }
-.navbar ul {
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    
-    gap: 45px;
+
+.nav-menu ul {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  gap: 45px;
+  margin: 0;
+  padding: 0;
 }
+
 .navbar ul li{
-list-style: none;
+  list-style: none;
 }
+
 .navbar ul li a{
-    text-decoration: none;
-    font-size: 1.2rem;
-    color: #ffffff;
+  text-decoration: none;
+  font-size: 1.2rem;
+  color: #ffffff;
 }
 
 .navbar ul li a:hover{
-    color: #ff3b30;
+  color: #ff3b30;
 }
 
-button{
- background-color: #ff3b30;
+.connect button{
+  background-color: #ff3b30;
   color: white;
   border: none;
   padding: 15px 25px;
   border-radius: 20px;
   cursor: pointer;
   font-weight: 600;
-  font-size: 1.1rem ;
+  font-size: 1.1rem;
 }
 
-button:hover{
-    background-color: #e62e25;
+.connect button:hover{
+  background-color: #e62e25;
 }
 
+/* ===== Mobile Menu (hidden on desktop) ===== */
+.hamburger-btn {
+  display: none; /* shown on mobile by media query below */
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  width: 36px;
+  height: 28px;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 6px;
+  z-index: 1300;
+}
+.hamburger-btn span {
+  display:block;
+  height:3px;
+  background:#ff3b30;
+  border-radius:2px;
+}
 
-
-/* ----------------- Hamburger + mobile menu styles ----------------- */
-
-/* hide hamburger on desktop by default */
-.hamburger-btn { display: none; }
-
-/* mobile slide menu (initially hidden off-screen to the right) */
+/* Mobile slide-in nav */
 .nav-menu-mobile {
   position: fixed;
-  top: 0;
   right: -100%;
+  top: 0;
   height: 100vh;
   width: 78%;
   max-width: 360px;
-  background: #1c1c1c;
-  color: #fff;
-  z-index: 2000;
-  padding: 22px 18px;
-  box-shadow: -8px 0 30px rgba(0,0,0,0.4);
-  transition: right 300ms ease;
-  display: flex;
-  flex-direction: column;
-  gap: 18px;
-  box-sizing: border-box;
+  background: #ffffff;
+  box-shadow: -10px 0 30px rgba(0,0,0,0.12);
+  padding: 22px;
+  transition: right .32s ease;
+  z-index: 1250;
+  overflow-y: auto;
+  color: #111;
 }
 
-/* close button top-right inside menu */
+/* open state */
+.nav-menu-mobile.open { right: 0; }
+
+/* close button inside mobile panel */
 .nav-menu-mobile .close-btn {
+  display: inline-block;
+  font-size: 26px;
   background: transparent;
-  color: #fff;
   border: none;
-  font-size: 28px;
-  align-self: flex-end;
   cursor: pointer;
+  margin-left: auto;
 }
 
-/* links inside mobile menu */
+/* mobile list */
 .nav-menu-mobile ul {
+  padding: 24px 0 0 0;
   list-style: none;
-  margin: 6px 0 0 0;
-  padding: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
+  margin: 0;
 }
-
-.nav-menu-mobile a {
-  color: #fff;
-  text-decoration: none;
+.nav-menu-mobile li {
+  margin: 18px 0;
   font-size: 1.15rem;
 }
+.nav-menu-mobile a { color: #111; }
 
-/* mobile CTA button */
-.mobile-cta { margin-top: auto; }
-.mobile-connect {
-  width: 100%;
-  padding: 10px 12px;
-  border-radius: 14px;
+/* mobile CTA */
+.mobile-cta {
+  margin-top: 22px;
+}
+.mobile-cta button{
   background: #ff3b30;
-  color: white;
+  color: #fff;
   border: none;
-  font-weight: 600;
+  padding: 12px 18px;
+  border-radius: 12px;
   cursor: pointer;
 }
 
-/* visible/open state toggled by class on .navbar */
-.navbar.nav-open .nav-menu-mobile {
-  right: 0;
-}
-
-/* when menu is open we also add a small body overlay effect (via pseudo on navbar) */
-.navbar.nav-open::after {
-  content: "";
-  position: fixed;
-  inset: 0;
-  background: rgba(0,0,0,0.35);
-  z-index: 1500;
-}
-
-/* Hamburger icon styles (mobile) */
-.hamburger-btn {
-  display: none;       /* enabled in media queries below */
-  background: orange;
-  border: 0;
-  cursor: pointer;
-  padding: 20px;
-  z-index: 1000;
-  width: 84px;
-  height: 8px;
-  align-items: center;
-  justify-content: center;
-
-}
-.hamburger-btn .hb-line {
-  display: block;
-  width: 20px;
-  height: 2.6px;
-  background: #ff3b30;   /* red brand color */
-  margin: 3.6px 0;
-  border-radius: 2px;
-}
-
-/* ---------- Responsive activation ---------- */
-
-/* Tablet and smaller */
+/* ===== Responsive rules ===== */
 @media (max-width: 768px) {
-  /* show hamburger */
-  .hamburger-btn { display: inline-flex; }
+  /* hide desktop nav, show hamburger */
+  .nav-menu { display: none !important; }
+  .connect { display: none !important; }
+  .hamburger-btn { display: flex; }
 
-  /* hide the inline desktop connect button on small screens */
-  .connect { display: none; }
-
-  /* hide the desktop nav-menu visually (we keep it to preserve desktop layout in code) */
-  .nav-menu { display: none; }
+  /* mobile panel text align left and spacing */
+  .nav-menu-mobile { padding-top: 28px; }
 }
 
-/* tiny phones adjustments */
+/* small phones tweak */
 @media (max-width: 420px) {
-  .nav-menu-mobile {
-    width: 86%;
-    max-width: 320px;
-    padding: 18px;
-  }
-  .nav-menu-mobile a { font-size: 1rem; }
-  .mobile-connect { padding: 9px 12px; }
-}
-
-/* ensure hamburger sits inside header on very small widths */
-@media (max-width: 360px) {
-  .hamburger-btn .hb-line { width: 18px; }
-  .nav-menu-mobile { width: 92%; max-width: 300px; }
+  .nav-menu-mobile { width: 88%; }
+  .nav-menu-mobile li { font-size: 1.05rem; }
 }

@@ -7,47 +7,42 @@ import transformationImg from '../../assets/transformation.png'
 import groupImg from '../../assets/group.png'
 import lifestyleImg from '../../assets/lifestyle.png'
 
-// Simple inline SVG icon helper (you can replace with images or font-icons)
-const Icon = ({ children }) => (
-  <div className="svc-icon" dangerouslySetInnerHTML={{ __html: children }} />
-);
-
 const services = [
   {
-    img:personalImg,
+    img: personalImg,
     title: "Personal Training",
     desc: "Custom strength & fat-loss programs built for your schedule.",
   },
   {
+    img: onlineImg,
     title: "Online Coaching",
     desc: "Weekly check-ins, workouts, and nutrition guidance — all online.",
-    img:onlineImg,
   },
   {
+    img: nutritionImg,
     title: "Nutrition Plans",
     desc: "Simple, realistic meal plans that fit your life and goals.",
-    img:nutritionImg,
   },
   {
+    img: groupImg,
     title: "Group Sessions",
     desc: "High-energy group workouts to keep you consistent and motivated.",
-    img:groupImg,
   },
   {
+    img: transformationImg,
     title: "Transformation Program",
     desc: "Structured 12-week program with workouts, nutrition, and coaching.",
-    img:transformationImg,
   },
   {
+    img: lifestyleImg,
     title: "Lifestyle Coaching",
     desc: "Build routines for better sleep, energy, and long-term results.",
-    img:lifestyleImg ,
   }
 ];
 
 export default function Services() {
   return (
-    <section  className="services" id="services">
+    <section className="services" id="services">
       <div className="container">
         <header className="svc-header">
           <h4>What I Offer</h4>
@@ -60,19 +55,21 @@ export default function Services() {
         <div className="svc-grid">
           {services.map((s, i) => (
             <article className="svc-card" key={i}>
-              <img src={s.img} className="svc-img" ></img>
+              <div className="svc-thumb">
+                <img src={s.img} alt={s.title} className="svc-img" />
+              </div>
               <h3>{s.title}</h3>
               <p>{s.desc}</p>
               <div className="svc-card-footer">
                 <button className="btn-outline">Learn More</button>
-                <button className="btn-red"
-                
-                onClick={() =>
-           document.getElementById("subscription").scrollIntoView({behavior:"smooth"})
-
-          }
-                
-                >Book Now</button>
+                <button
+                  className="btn-red"
+                  onClick={() =>
+                    document.getElementById("subscription").scrollIntoView({ behavior: "smooth" })
+                  }
+                >
+                  Book Now
+                </button>
               </div>
             </article>
           ))}
@@ -80,7 +77,7 @@ export default function Services() {
 
         <div className="svc-cta">
           <p>Ready to get started? I’ll create a custom plan for you.</p>
-          <a href="/contact" className="btn-red large">Get Started</a>
+          <a href="#contact" className="btn-red large">Get Started</a>
         </div>
       </div>
     </section>
